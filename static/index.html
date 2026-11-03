@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1018">
+  <title>Dataguard · Database Health</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div id="app">
+    <section class="auth-shell" id="auth-view">
+      <div class="auth-card">
+        <div class="brand-mark">D</div>
+        <p class="eyebrow">DATABASE INTELLIGENCE</p>
+        <h1>Know your data.<br><span>Fix it with confidence.</span></h1>
+        <p class="muted">Detect database risks, understand root causes, and route safe repairs through administrator approval.</p>
+        <form id="auth-form">
+          <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
+          <label>Password<input name="password" type="password" minlength="10" autocomplete="current-password" placeholder="At least 10 characters" required></label>
+          <label id="admin-setup-field" hidden>Administrator setup token<input name="admin_setup_token" type="password" autocomplete="off" placeholder="Set by the server administrator"></label>
+          <button class="button primary wide" id="auth-submit" type="submit">Sign in</button>
+        </form>
+        <p class="auth-switch"><span id="auth-switch-text">New to Dataguard?</span> <button class="text-button" id="auth-toggle" type="button">Create account</button></p>
+        <p class="auth-note" id="auth-note">The first account created on this installation receives administrator access.</p>
+        <div class="notice" id="auth-message" hidden></div>
+      </div>
+      <div class="auth-aside">
+        <div class="glow"></div>
+        <div class="aside-content">
+          <div class="live-pill"><i></i> RULE-BASED DIAGNOSTICS</div>
+          <h2>Make database<br>health <em>visible.</em></h2>
+          <p>Find integrity gaps, data quality issues, and optimization opportunities before they become incidents.</p>
+          <div class="aside-stats"><div><strong>Read-only</strong><small>analysis by default</small></div><div><strong>Human-first</strong><small>approval before repair</small></div></div>
+        </div>
+      </div>
+    </section>
+    <div id="workspace" hidden>
+      <aside class="sidebar">
+        <a class="brand" href="#"><span class="brand-mark small">D</span><span>data<span class="brand-light">guard</span><small>DATABASE HEALTH</small></span></a>
+        <div class="workspace-label">WORKSPACE</div>
+        <nav id="navigation">
+          <button class="nav-link active" data-page="overview"><span>◫</span> Overview</button>
+          <button class="nav-link" data-page="connections"><span>⌘</span> Databases</button>
+          <button class="nav-link" data-page="explorer"><span>▦</span> Explorer</button>
+          <button class="nav-link" data-page="findings"><span>⌕</span> Findings <b id="findings-nav-count">0</b></button>
+          <button class="nav-link" data-page="approvals"><span>◷</span> Approvals</button>
+          <button class="nav-link" data-page="activity"><span>↗</span> Activity</button>
+          <button class="nav-link" data-page="reports"><span>▤</span> Reports</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="safe-card"><div class="safe-icon">✓</div><strong>Repairs stay in control</strong><p>Nothing changes until an administrator approves it.</p></div>
+          <button class="user-card" id="signout"><span class="avatar" id="user-avatar">U</span><span class="user-meta"><strong id="user-email">User</strong><small id="user-role">Viewer</small></span><span class="logout-icon">↪</span></button>
+        </div>
+      </aside>
+      <main class="main">
+        <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong id="page-title">Overview</strong></div><div class="top-actions"><span class="secure-label"><i></i> Session secured</span><button class="icon-button" id="refresh" title="Refresh">↻</button></div></header>
+        <div class="page-content" id="page-content"></div>
+      </main>
+      <div id="toast" class="toast" hidden></div>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
